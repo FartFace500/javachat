@@ -48,6 +48,7 @@ public class ClientHandler implements Runnable
                     Message message = new Message(inputLine, this.toString(), "all");
                     System.out.println("Adding to messsage queue in clienthandler: " + message.getMessage() + "(from: "+clientSocket.getPort()+")");
                     messageQueue.add(message);
+                    // TODO: make it so people can so who sent what
                 }
             } while (inputLine != null && !inputLine.equals("exit"));
 
