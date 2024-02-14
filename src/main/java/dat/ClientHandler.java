@@ -46,7 +46,7 @@ public class ClientHandler implements Runnable
                 } else if (inputLine != null)
                 {
                     Message message = new Message(inputLine, this.toString(), "all");
-                    System.out.println("Adding to messsage queue in clienthandler: " + message.getMessage());
+                    System.out.println("Adding to messsage queue in clienthandler: " + message.getMessage() + "(from: "+clientSocket.getPort()+")");
                     messageQueue.add(message);
                 }
             } while (inputLine != null && !inputLine.equals("exit"));

@@ -31,11 +31,12 @@ public class Server implements Runnable
 
             while (!Thread.currentThread().isInterrupted() && !message.getMessage().equals("exit"))
             {
-                message = messageQueue.take();
+                message = messageQueue.take(); // Blocking call
                 System.out.println("Message received: " + message.getMessage());
                 for (ClientHandler clientHandler : clientMap.values())
                 {
                     clientHandler.sendMessage(message.getMessage());
+                    // TODO: don't seng message to sender
                 }
             }
         }
